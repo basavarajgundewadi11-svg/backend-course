@@ -20,6 +20,7 @@ const login=async (req,res) => {
   try {
     const {email,password}=req.body;
     const userdata = await User.findOne({email});
+    const hashpassword=await bcrypt.compare (password,userdata.password);
     if(!userdata){
       throw new Error("User is not found");
       
