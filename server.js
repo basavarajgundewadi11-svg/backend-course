@@ -6,14 +6,14 @@ const port=process.env.port;
 const { default: mongoose } = require("mongoose"); //
 const mangoose = require("mongoose");
 
-const {CreateAccount,login}=require("./controllers/user")
+const {createAccount,login}=require("./controllers/user")
 const {createNotebook,getNotes,updateNotebook,deleteNotebook}=require("./controllers/notes")
 app.use(express.json());
 
 app.post("/CreateNotebook",createNotebook);
 app.post("/allNotes",getNotes);
 app.put("/update/:id",updateNotebook);
-app.post("/signin",CreateAccount);
+app.post("/signin",createAccount);
 app.post("/login",login);
 app.delete("/delete/:id",deleteNotebook);
 
